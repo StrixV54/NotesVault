@@ -77,7 +77,7 @@ function showTasks(){
   }*/
   let newLiTag = "";
   listArray.forEach((element, index) => {
-    newLiTag += `<div class="notes-list-item"><span class="icon" ondblclick="deleteTask(${index})"><i class="far fa-times-circle fa-lg"></i></span>${element}</div></div>`;
+    newLiTag += `<div class="notes-list-item"><span class="icon"><i class="fas fa-pen-square fa-lg"></i><span class="exit" ondblclick="deleteTask(${index})"><i class="far fa-times-circle fa-lg"></i></span></span>${element}</div></div>`;
     //newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
   });
   todoList.innerHTML = newLiTag; 

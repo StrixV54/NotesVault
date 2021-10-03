@@ -4,21 +4,29 @@ html,body{
     width: 100%;
 }
 body {
-    background: linear-gradient(0deg, #87bea9, #94d4f1, #91a8c5, #7dc2ab, #87bea9);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    background: linear-gradient(-45deg, #c0c0c0, #aabecc);
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 50% 100%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+::-webkit-scrollbar {
+    width: 13px;
+    background-color: #c7c7c7;
+  }
+.notes-list-item::-webkit-scrollbar {
+    width: 13px;
+    border-radius: 10px;
+    background-color: #c7c7c7;
+  }
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #cfcfcf;
+  }
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(0deg, #9e82d1, #718cbd);
+    border-radius: 10px;
+    outline: none;
+  }
 .notes {
     display: flex;
     justify-content: space-between;
@@ -45,24 +53,27 @@ body {
     color:#0c467c;
     font-family: 'Segoe UI';
 }
+
 .notes-add-button {
-    background: #00953e;
-    border: solid 2px #1c8a4a;
-    margin-top: 20px;
-    border-radius: 30px;
-    color: #e9e3e3;
-    cursor: pointer;
-    font-size: 1.25em;
-    font-weight: bold;
-    transition: all 0.3s ease; 
-    padding: 0.1em 0;
-    height: 50px;
-    width: 200px;
+   background-image: linear-gradient(to right, #1d71d1 0%, #b43dec  40% 60%, #f16730 90%);
+   margin: 20px 10px;
+   border: none;
+   padding: 15px 40px;
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: bold;
+   transition: 0.5s;
+   background-size: 250% auto;
+   color: white;            
+   box-shadow: 0 0 20px rgba(165, 165, 165, 0.671);
+   border-radius: 10px;
+   display: block;
+   height: 50px;
 }
+
 .notes-add-button:hover {
-    background: #1f9e3a;
-    border: solid 2px #1f9e3a;
-    transition: all 0.3s ease; 
+    background-position: 90% 40%;
+    text-decoration: none;
 }
 .notes-list {
     height: 100%;
@@ -114,33 +125,35 @@ body {
 }
 .save-btn, .cancel-btn{
     float: right;
-    background: #319e49;
+    background: linear-gradient(-45deg, #82a789, #6e8673);
     border: none;
     margin: 10px 8px 0px 8px;
     border-radius: 30px;
-    opacity: 0.8;
     color: #ffffff;
     cursor: pointer;
     font-size: 1.25em;
     font-weight: bold;
+    transition: all 0.3s ease;
     padding: 0em;
-    height: 50px;
-    width: 200px;
+    height: 45px;
+    width: 170px;
 }
 .save-btn.active{
-    opacity: 1.0;
+    background: linear-gradient(-45deg, #63ce77, #379449);
+}
+.save-btn.active:hover{
+    background: linear-gradient(-45deg, #26ce45, #0e9c2b);
 }
 .cancel-btn:hover{
-    opacity: 1.0;
+    background: linear-gradient(-45deg, #26ce45, #0e9c2b);
 }
 .notes-list-item {
-    cursor: pointer;
-    background: linear-gradient(160deg, #fafafa54 0%, #d2f3ffc9 40%, #ffffff80 100%);
+    background: linear-gradient(160deg, #fafafa69 0%, #d2f3ffe8 40%, #ffffff9d 100%);
 	border-radius: 10px;
     font-family:'Segoe UI';
 	padding: 0.4em 1em 1em 1em;
 	height: 170px;
-    overflow: auto;
+    overflow-y: auto;
     mix-blend-mode: luminosity;
 	display: flex;
     box-shadow: 2px 2px 10px #6d6d6d7e;
@@ -148,20 +161,33 @@ body {
 	justify-content: space-between;
 	white-space: pre-wrap;
 }
-
+.exit {
+    margin-left: 10px;
+}
 .icon {
     margin:0 0 0 auto;
     transition: all 0.3s ease;   
     border: none;
+    cursor: pointer;
     color: rgb(187, 205, 212);
     outline: none;
 }
 .icon :hover {
     transition: all 0.3s ease; 
-    transform: scale(1.1);  
     color: rgb(104, 173, 201);
 }
 .notes-small-body {
     margin-top: 7px;
     padding: 20px 1px 10px 1px;
+}
+.theme-mode{
+    color: #6e8673;
+    cursor: pointer;
+    border: none;
+    margin: auto 12px auto auto;
+    align-items: center;
+    justify-content: center;
+}
+.theme-mode:hover{
+    color:#406ca7;
 }
