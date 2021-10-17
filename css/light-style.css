@@ -10,10 +10,13 @@ body {
     background-size: 100% 100%;
     background-attachment: fixed;
 }
-
+body::-webkit-scrollbar {
+    width: 13px;
+    background-color: #95a4c0;
+  }
 ::-webkit-scrollbar {
     width: 13px;
-    background-color: #c7c7c7;
+    background: none;
   }
 .notes-list-item::-webkit-scrollbar {
     width: 13px;
@@ -118,7 +121,7 @@ body {
     outline: none;
     align-items: center;
     justify-content: stretch;
-    overflow: hidden;
+    overflow: auto;
     width: 90%;
     font-size: 2.1em;
     line-height: 1.5;
@@ -169,7 +172,7 @@ body {
 	white-space: pre-wrap;
 }
 
-.exit {
+#exit {
     margin-left: 10px;
 }
 .icon {
@@ -177,6 +180,7 @@ body {
     transition: all 0.3s ease;   
     border: none;
     cursor: pointer;
+    display: flex;
     color: rgb(187, 205, 212);
     outline: none;
 }
