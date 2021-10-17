@@ -64,24 +64,23 @@ function addItem(text){
   })
 }
 
+function setItem(index, text){
+  let newItem = db.collection("notes").doc(index).set({
+    text: text
+  })
+}
+
+
 saveBtn.onclick = ()=>{ 
   let userEnteredValue = inputBox.value;
   if(userEnteredValue.trim() != 0){
   //console.log("savebtn "+userEnteredValue); 
-  let getLocalStorageData = localStorage.getItem("New Todo"); 
-  if(getLocalStorageData == null){ 
-    listArray = []; 
-  }else{
-    listArray = JSON.parse(getLocalStorageData);  
+  if(idx==null){
+  addItem(userEnteredValue);}
+  else{
+    setItem(idx, userEnteredValue);
+    idx=null;
   }
-  if(idx!=null){
-    listArray.splice(idx, 1); 
-    localStorage.setItem("New Todo", JSON.stringify(listArray));
-  }
-  listArray.push(userEnteredValue); 
-  localStorage.setItem("New Todo", JSON.stringify(listArray));
-
-  addItem(userEnteredValue);
   getItems();
   //showTasks(); 
   saveBtn.classList.remove("active"); 
@@ -130,21 +129,17 @@ function deleteTask(index){
 }
 
 function editTask(index){
-  /*let getLocalStorageData = localStorage.getItem("New Todo");
-  listArray = JSON.parse(getLocalStorageData);
-  let texx=listArray[index];
-  console.log(texx);
-  document.querySelector(".text-preview").style.display="block";
-  document.querySelector(".text-blur").style.display="block";
-  inputBox.value=texx;
-  idx=index;*/
-  document.querySelector(".text-preview").style.display="block";
-  document.querySelector(".text-blur").style.display="block";
-  inputBox.value=db.collection("notes").doc(index).text;
-  console.log("updated item");
-  let newItem = db.collection("notes").doc(index).set({
-      text: text
+  let docRef=db.collection("notes").doc(index);
+  inputBox.value="Please Wait...";
+  docRef.get().then((doc) => {
+        console.log("Document data:", doc.data());
+        inputBox.value=doc.data().text;
   })
+  idx=index;
+  document.querySelector(".text-preview").style.display="block";
+  document.querySelector(".text-blur").style.display="block";
+  saveBtn.classList.add("active");
+  console.log("updated item");
 }
 
 const btn_toggle = document.querySelector(".theme-toggle");
