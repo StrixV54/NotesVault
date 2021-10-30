@@ -6,7 +6,7 @@ html,body{
     width: 100%;
 }
 body {
-    background: linear-gradient(-45deg, #242323, #323d3a);
+    background: linear-gradient(-45deg, #2c2b2b, #323d3a);
     background-size: 100% 100%;
     background-attachment: fixed;
 }
@@ -138,6 +138,25 @@ body::-webkit-scrollbar {
     min-height: 200px;
     resize: none;
 }
+.imp{
+    float: left;
+    background-color: #6e8673;
+    border: none;
+    margin: 10px 8px 0px 8px;
+    border-radius: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+}
+.imp:hover{
+    background-color: #37a058;
+}
+.imp.active{
+    background-color: #2b75b1;
+}
 .save-btn, .cancel-btn{
     float: right;
     background: linear-gradient(-45deg, #82a789, #6e8673);
@@ -149,9 +168,8 @@ body::-webkit-scrollbar {
     font-size: 1.25em;
     font-weight: bold;
     transition: all 0.3s ease;
-    padding: 0em;
-    height: 45px;
-    width: 170px;
+    padding: 10px 15px;
+    width: auto;
 }
 .save-btn.active{
     background: linear-gradient(-45deg, #63ce77, #379449);
@@ -162,18 +180,20 @@ body::-webkit-scrollbar {
 .cancel-btn:hover{
     background: linear-gradient(-45deg, #26ce45, #0e9c2b);
 }
+.k{
+    background: linear-gradient(45deg,#54945f79,#ffffff00);
+}
 .notes-list-item {
-    background: linear-gradient(160deg, #6b6b6bd7 0%, #4b6d72e0 40%, #7dabc083 100%);
+    background: #6b6b6b;
 	border-radius: 10px;
     font-family: 'Segoe UI';
 	padding: 0.4em 1em 1em 1em;
 	height: 170px;
     overflow: auto;
     overflow-wrap: break-word;
-    mix-blend-mode: luminosity;
-    color: thistle;
+    color: rgb(236, 236, 236);
 	display: flex;
-    box-shadow: 2px 2px 10px #3030307e;
+    box-shadow: 2px 2px 10px #1414147e;
 	flex-direction: column;
 	justify-content: space-between;
 	white-space: pre-wrap;
@@ -182,14 +202,26 @@ body::-webkit-scrollbar {
 #exit {
     margin-left: 10px;
 }
+.topBar {
+    display: flex;
+    justify-content: space-between;
+}
+.mark {
+    height: 10px;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 20px;
+    background: #a0a0a0;
+    margin: 5px 20px 0 0;
+    padding: 0%;
+}
 .icon {
-    margin:0 0 0 auto;
+    margin: 3px 0 0 auto;
     transition: all 0.3s ease;   
     border: none;
     display: flex;
     cursor: pointer;
-    color: rgb(159, 172, 177);
-    outline: none;
+    color: rgb(163, 180, 187);
 }
 .icon :hover {
     transition: all 0.3s ease; 

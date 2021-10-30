@@ -20,9 +20,7 @@
               <div class="notes-list-item">
                 <span class="icon">
                   <i class="fas fa-pen-square fa-lg" onclick="editTask(${index})"></i>
-                  <span class="exit" ondblclick="deleteTask(${index})">
-                    <i class="far fa-times-circle fa-lg"></i>
-                  </span>
+                  <i class="far fa-times-circle fa-lg" onclick="deleteTask(${index})"></i>
                 </span>
                 ${element}
               </div>
@@ -33,6 +31,7 @@
       <div class="text-blur"></div>
         <div class="text-preview">
           <textarea class="text-body" placeholder="Here... write your notes :)"></textarea>
+          <button class="imp" type="button">Imp</button>
           <button class="save-btn" type="button">Save</button>
           <button class="cancel-btn" type="button">Cancel</button>
         </div>

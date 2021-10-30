@@ -6,7 +6,7 @@ html,body{
     width: 100%;
 }
 body {
-    background: linear-gradient(-45deg, #c0c0c0, #aabecc);
+    background: linear-gradient(-45deg, #dddddd, #aabecc);
     background-size: 100% 100%;
     background-attachment: fixed;
 }
@@ -105,14 +105,16 @@ body::-webkit-scrollbar {
 .text-preview {
     display: none;
     position: fixed;
-    top: 25%; left: 15%;
+    top: 50%; left: 50%;
     overflow: auto;
+    transform: translate(-50%,-50%);
     margin: auto;
-    width: 60%;
+    width: 80%;
+    height: 50%;
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 3em;
     background: linear-gradient(45deg, #c8e6df 0%, #99ebd0 100%);
 }
@@ -122,15 +124,33 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: stretch;
     overflow: auto;
-    width: 90%;
-    font-size: 2.1em;
+    width: 100%;
+    font-size: 1.8em;
     line-height: 1.5;
-    padding: 1em;
     color: rgb(0, 0, 0);
     background: transparent;
     border-radius: 20px;
-    min-height: 200px;
+    height: 90%;
     resize: none;
+}
+.imp{
+    float: left;
+    background-color: #6e8673;
+    border: none;
+    margin: 10px 8px 0px 8px;
+    border-radius: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+}
+.imp:hover{
+    background-color: #37a058;
+}
+.imp.active{
+    background-color: #2b75b1;
 }
 .save-btn, .cancel-btn{
     float: right;
@@ -143,9 +163,8 @@ body::-webkit-scrollbar {
     font-size: 1.25em;
     font-weight: bold;
     transition: all 0.3s ease;
-    padding: 0em;
-    height: 45px;
-    width: 170px;
+    padding: 10px 15px;
+    width: auto;
 }
 .save-btn.active{
     background: linear-gradient(-45deg, #63ce77, #379449);
@@ -156,17 +175,20 @@ body::-webkit-scrollbar {
 .cancel-btn:hover{
     background: linear-gradient(-45deg, #26ce45, #0e9c2b);
 }
+.k{
+    background:#2ebce0ab;
+    color: #3a62ac;
+}
 .notes-list-item {
-    background: linear-gradient(160deg, #e2e2e2a4 0%, #d2f3ffe8 40%, #ffffff9d 100%);
+    background: #dad9d9;
 	border-radius: 10px;
     font-family:'Segoe UI';
 	padding: 0.4em 1em 1em 1em;
 	height: 170px;
     overflow: auto;
     overflow-wrap: break-word;
-    mix-blend-mode: luminosity;
 	display: flex;
-    box-shadow: 2px 2px 10px #6d6d6d7e;
+    box-shadow: 2px 2px 10px #9292927e;
 	flex-direction: column;
 	justify-content: space-between;
 	white-space: pre-wrap;
@@ -175,22 +197,30 @@ body::-webkit-scrollbar {
 #exit {
     margin-left: 10px;
 }
+.topBar {
+    display: flex;
+    justify-content: space-between;
+}
+.mark {
+    height: 10px;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 20px;
+    background: #bebebe;
+    margin: 5px 20px 0 0;
+    padding: 0%;
+}
 .icon {
-    margin:0 0 0 auto;
+    margin: 3px 0 0 auto;
     transition: all 0.3s ease;   
     border: none;
-    cursor: pointer;
     display: flex;
-    color: rgb(187, 205, 212);
-    outline: none;
+    cursor: pointer;
+    color: rgb(163, 180, 187);
 }
 .icon :hover {
     transition: all 0.3s ease; 
-    color: rgb(104, 173, 201);
-}
-.notes-small-body {
-    margin-top: 7px;
-    padding: 20px 1px 10px 1px;
+    color: rgb(22, 140, 187);
 }
 .theme-toggle{
     color: #6e8673;
