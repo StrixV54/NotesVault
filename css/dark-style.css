@@ -1,14 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
 
 html,body{
-    height: 100vh;
     margin: 0;
-    width: 100%;
+    padding: 0;
+  
 }
 body {
-    background: linear-gradient(-45deg, #2c2b2b, #323d3a);
-    background-size: 100% 100%;
+    /* background: linear-gradient(-45deg, #2c2b2b, #323d3a); */
+    background-color: #3b4240;
+    background-image: url("https://picsum.photos/1366/768?random=1");
+    /* background-size: 100% 100%; */
     background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Zen Kurenaido', sans-serif;
+    background-blend-mode:overlay;
 }
 body::-webkit-scrollbar {
     width: 13px;
@@ -33,39 +39,52 @@ body::-webkit-scrollbar {
     border-radius: 10px;
     outline: none;
   }
-.notes {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-}
-.notes * {
-    font-family:'Segoe UI';
-}
+
 .notes-container {
     max-width: 980px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 10px;
 	padding-left: 10px;
-	min-height: 100vh;
+	min-height: 100%;
 }
 .header {
     display: flex;
     margin-top: 10px;
+    flex-wrap: wrap;
     margin-bottom: 20px;
 }
 .head-text {
     margin-right: auto;
     color:#79b0e4;
-    font-size: 35px;
-    font-family: 'Maven Pro', sans-serif;
+    font-size: 2.3rem;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 2px 2px 6px #494949bd;
+}
+@media only screen and (max-width: 520px) {
+    body {
+        background-image: url("https://picsum.photos/768/1024?random=1");
+    }
+    .notes-add-button {
+        flex-grow: 1;
+        font-size: 0.8rem;
+    }
+    .head-text {
+        margin-right: 20%;
+        font-size: 1.8rem;
+    }
+    .header {
+        margin-bottom: 10px;
+    }
 }
 
 .notes-add-button {
    background-image: linear-gradient(to right, #1d71d1 0%, #b43dec  40% 60%, #f16730 90%);
-   margin: 20px 10px;
+   margin: 24px 10px;
    border: none;
-   padding: 15px 40px;
+   font-family: 'Zen Kurenaido', sans-serif;
+   padding: 8px 30px;
+   font-size: 0.9rem;
    text-align: center;
    text-transform: uppercase;
    font-weight: bold;
@@ -75,7 +94,6 @@ body::-webkit-scrollbar {
    box-shadow: 0 0 20px rgba(37, 37, 37, 0.671);
    border-radius: 10px;
    display: block;
-   height: 50px;
 }
 
 .notes-add-button:hover {
@@ -91,7 +109,7 @@ body::-webkit-scrollbar {
 		minmax(250px, 1fr)
 	);
 }
-.text-blur {
+.textt-blur {
     margin: auto;
     height: 100%;
     width: 100%;
@@ -108,19 +126,25 @@ body::-webkit-scrollbar {
 .text-preview {
     display: none;
     position: fixed;
-    top: 20%; left: 15%;
-    overflow: auto;
-    margin: auto;
-    width: 60%;
-    align-items: center;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
     overflow: hidden;
+    margin: auto;
+    width: 80%;
+    height: 50%;
+    align-items: center;
     color: thistle;
     justify-content: center;
     box-shadow: 0 0 30px #7474747e;
-    border-radius: 20px;
-    padding: 3em;
-    background: linear-gradient(45deg, #5f99a1 0%, #4fb895 100%);
+    border-radius: 30px;
+    padding: 2em 3em 4em 3em; 
+    backdrop-filter: drop-shadow(0px 0px 10px rgb(103, 148, 101));
+    backdrop-filter: grayscale(30%);
+    backdrop-filter: opacity(20%);
+    backdrop-filter: blur(20px);
+    background: linear-gradient(45deg, #5f99a175 0%, #4fb89559 100%);
 }
+
 .text-body {
     border: none;
     outline: none;
@@ -128,14 +152,14 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: stretch;
     overflow:auto;
-    width: 90%;
-    font-size: 2.1em;
+    width: 100%;
+    cursor: default;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-size: 1.8em;
     line-height: 1.5;
-    padding: 1em;
     color: rgb(247, 247, 247);
     background: transparent;
-    border-radius: 20px;
-    min-height: 200px;
+    height: 92%;
     resize: none;
 }
 .imp{
@@ -184,16 +208,15 @@ body::-webkit-scrollbar {
     background: linear-gradient(45deg,#54945f79,#ffffff00);
 }
 .notes-list-item {
-    background: #6b6b6b;
+    background: #747a79;
 	border-radius: 10px;
-    font-family: 'Segoe UI';
 	padding: 0.4em 1em 1em 1em;
 	height: 170px;
     overflow: auto;
     overflow-wrap: break-word;
-    color: rgb(236, 236, 236);
+    color: rgb(230, 230, 230);
 	display: flex;
-    box-shadow: 2px 2px 10px #1414147e;
+    box-shadow: 2px 2px 10px #1414143f;
 	flex-direction: column;
 	justify-content: space-between;
 	white-space: pre-wrap;
@@ -207,13 +230,12 @@ body::-webkit-scrollbar {
     justify-content: space-between;
 }
 .mark {
-    height: 10px;
-    max-width: 200px;
-    width: 100%;
-    border-radius: 20px;
+    height: 6px;
+    flex-grow: 1;
+    border-radius: 6px;
     background: #a0a0a0;
     margin: 5px 20px 0 0;
-    padding: 0%;
+    padding: 0 10px 0 0;
 }
 .icon {
     margin: 3px 0 0 auto;
@@ -232,7 +254,7 @@ body::-webkit-scrollbar {
     padding: 20px 1px 10px 1px;
 }
 .theme-toggle{
-    color: #6e8673;
+    color: #8fcf9c;
     cursor: pointer;
     border: none;
     margin: auto 12px auto auto;

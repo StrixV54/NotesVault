@@ -30,6 +30,11 @@ addBtn.onclick = ()=>{
 ccBtn.onclick = ()=>{
   document.querySelector(".text-preview").style.display="none";
   document.querySelector(".text-blur").style.display="none";
+  inputBox.value="";
+  if(codeNum==1){
+    impBtn.classList.remove("active");
+    codeNum=0;
+  }
 }
 
 inputBox.onkeyup = ()=>{
@@ -143,9 +148,11 @@ function showTasks(items){
 
 // delete task function
 function deleteTask(index){
-  console.log("deleted");
-  db.collection("notes").doc(index).delete();
-  getItems();
+  if(confirm("Delete this note!")==true){
+    console.log("deleted");
+    db.collection("notes").doc(index).delete();
+    getItems();
+  }
 }
 
 function editTask(index){

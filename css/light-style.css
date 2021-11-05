@@ -1,14 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+
 
 html,body{
-    height: 100vh;
     margin: 0;
-    width: 100%;
+    padding: 0;
 }
 body {
-    background: linear-gradient(-45deg, #dddddd, #aabecc);
-    background-size: 100% 100%;
+    /* background: linear-gradient(-45deg, #dddddd, #aabecc); */
+    background-color: #abc0c5;
+    background-image: url("https://picsum.photos/1366/768?random=1");
     background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Zen Kurenaido', sans-serif;
 }
 body::-webkit-scrollbar {
     width: 13px;
@@ -33,49 +37,61 @@ body::-webkit-scrollbar {
     border-radius: 10px;
     outline: none;
   }
-.notes {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-}
-.notes * {
-    font-family:'Segoe UI';
-}
+
 .notes-container {
     max-width: 980px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 10px;
 	padding-left: 10px;
-	min-height: 100vh;
+	min-height: 100%;
 }
 .header {
     display: flex;
     margin-top: 10px;
+    flex-wrap: wrap;
     margin-bottom: 20px;
 }
 .head-text {
     margin-right: auto;
-    color:#0c467c;
-    font-size: 35px;
-    font-family: 'Maven Pro',sans-serif;
+    color:#3eaac5;
+    font-size: 2.3rem;
+    font-family: 'Roboto',Helvetica;
+    text-shadow: 2px 2px 6px #27272763;
 }
-
+@media only screen and (max-width: 520px) {
+    body {
+        background-image: url("https://picsum.photos/768/1024?random=1");
+    }
+    .notes-add-button {
+        flex-grow: 1;
+        font-size: 0.8rem;
+    }
+    .head-text {
+        margin-right: 20%;
+        font-size: 1.8rem;
+    }
+    .header {
+        margin-bottom: 10px;
+    }
+}
+  
 .notes-add-button {
    background-image: linear-gradient(to right, #1d71d1 0%, #b43dec  40% 60%, #f16730 90%);
-   margin: 20px 10px;
+   margin: 24px 10px;
    border: none;
-   padding: 15px 40px;
+   font-family: 'Zen Kurenaido', sans-serif;
+   padding: 8px 30px;
+   font-size: 0.9rem;
    text-align: center;
    text-transform: uppercase;
    font-weight: bold;
    transition: 0.5s;
    background-size: 250% auto;
    color: white;            
-   box-shadow: 0 0 20px rgba(165, 165, 165, 0.671);
+   box-shadow: 0 0 20px rgba(94, 94, 94, 0.671);
    border-radius: 10px;
    display: block;
-   height: 50px;
 }
 
 .notes-add-button:hover {
@@ -91,7 +107,7 @@ body::-webkit-scrollbar {
 		minmax(250px, 1fr)
 	);
 }
-.text-blur {
+.textt-blur {
     margin: auto;
     height: 100%;
     width: 100%;
@@ -106,18 +122,23 @@ body::-webkit-scrollbar {
     display: none;
     position: fixed;
     top: 50%; left: 50%;
-    overflow: auto;
+    overflow: hidden;
     transform: translate(-50%,-50%);
     margin: auto;
     width: 80%;
     height: 50%;
-    overflow: hidden;
     align-items: center;
     justify-content: center;
     border-radius: 30px;
-    padding: 3em;
-    background: linear-gradient(45deg, #c8e6df 0%, #99ebd0 100%);
+    padding: 2em 3em 4em 3em; 
+    box-shadow: 0 0 20px #6d6d6d7e;
+    backdrop-filter: drop-shadow(0px 0px 10px rgb(100, 100, 100));
+    backdrop-filter: grayscale(30%);
+    backdrop-filter: opacity(20%);
+    backdrop-filter: blur(20px);
+    background: linear-gradient(45deg, #f2fffcab 0%, #def7ef52 100%);
 }
+
 .text-body {
     border: none;
     outline: none;
@@ -125,11 +146,11 @@ body::-webkit-scrollbar {
     justify-content: stretch;
     overflow: auto;
     width: 100%;
+    font-family: 'Zen Kurenaido', sans-serif;
     font-size: 1.8em;
     line-height: 1.5;
-    color: rgb(0, 0, 0);
+    color: rgb(58, 58, 58);
     background: transparent;
-    border-radius: 20px;
     height: 90%;
     resize: none;
 }
@@ -175,20 +196,17 @@ body::-webkit-scrollbar {
 .cancel-btn:hover{
     background: linear-gradient(-45deg, #26ce45, #0e9c2b);
 }
-.k{
-    background:#2ebce0ab;
-    color: #3a62ac;
-}
 .notes-list-item {
-    background: #dad9d9;
+    background: rgb(238, 238, 238);
 	border-radius: 10px;
-    font-family:'Segoe UI';
 	padding: 0.4em 1em 1em 1em;
 	height: 170px;
     overflow: auto;
     overflow-wrap: break-word;
+    font-weight: bold;
+    color: rgb(63, 63, 63);
 	display: flex;
-    box-shadow: 2px 2px 10px #9292927e;
+    box-shadow: 2px 2px 10px #5353536b;
 	flex-direction: column;
 	justify-content: space-between;
 	white-space: pre-wrap;
@@ -202,13 +220,12 @@ body::-webkit-scrollbar {
     justify-content: space-between;
 }
 .mark {
-    height: 10px;
-    max-width: 200px;
-    width: 100%;
-    border-radius: 20px;
+    height: 6px;
+    flex-grow: 1;
+    border-radius: 6px;
     background: #bebebe;
     margin: 5px 20px 0 0;
-    padding: 0%;
+    padding:0 10px 0 0;
 }
 .icon {
     margin: 3px 0 0 auto;
@@ -226,6 +243,7 @@ body::-webkit-scrollbar {
     color: #6e8673;
     cursor: pointer;
     border: none;
+    text-shadow: 0 0 8px #2c2c2c50;
     margin: auto 12px auto auto;
     align-items: center;
     justify-content: center;
