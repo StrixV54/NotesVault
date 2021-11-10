@@ -26,15 +26,18 @@ addBtn.onclick = ()=>{
   codeNum=0;
   document.querySelector(".text-preview").style.display="block";
   document.querySelector(".text-blur").style.display="block";
+  disableScroll();
 }
 ccBtn.onclick = ()=>{
   document.querySelector(".text-preview").style.display="none";
   document.querySelector(".text-blur").style.display="none";
   inputBox.value="";
-  if(codeNum==1){
+  if(codeNum!=0){
     impBtn.classList.remove("active");
+    impBtn.classList.remove("active1");
     codeNum=0;
   }
+  enableScroll();
 }
 
 inputBox.onkeyup = ()=>{
@@ -96,8 +99,10 @@ saveBtn.onclick = ()=>{
   saveBtn.classList.remove("active"); 
   codeNum=0;
   impBtn.classList.remove("active");
+  impBtn.classList.remove("active1");
   document.querySelector(".text-preview").style.display="none";
   document.querySelector(".text-blur").style.display="none";
+  enableScroll();
   }
 }
 
@@ -115,7 +120,10 @@ function showTasks(items){
         let impMark=document.createElement("div");
         impMark.classList.add("mark");
         if(item.code==1){
-            impMark.style.background="#2ebce0ab";
+            impMark.style.background="#42a2da";
+        }
+        else if(item.code==2){
+            impMark.style.background="#e99547";
         }
         let checkContainer = document.createElement("div");
         checkContainer.classList.add("icon");
@@ -135,7 +143,7 @@ function showTasks(items){
         topBar.appendChild(checkContainer);
 
         let todoText = document.createElement("div");
-        todoText.classList.add("small-text-body");
+        todoText.classList.add("inside-text-body");
         todoText.innerText = item.text;
 
         todoItem.appendChild(topBar);
@@ -166,23 +174,36 @@ function editTask(index){
         if(codeNum==1){
           impBtn.classList.add("active");
         }
+        else if(codeNum==2){
+          impBtn.classList.add("active1");
+        }
         console.log("code "+codeNum);
   })
   idx=index;
   document.querySelector(".text-preview").style.display="block";
   document.querySelector(".text-blur").style.display="block";
+  disableScroll();
   saveBtn.classList.add("active");
   console.log("updated item");
 }
 
 impBtn.onclick = () =>{
-  if(impBtn.className=="imp active"){
+  if(codeNum==3){
     impBtn.classList.remove("active");
+    impBtn.classList.remove("active1");
     codeNum=0;
   }
   else{
+    codeNum+=1;
+    if(codeNum==1)
     impBtn.classList.add("active");
-    codeNum=1;
+    else if(codeNum==2)
+    impBtn.classList.add("active1");
+    else{
+      impBtn.classList.remove("active");
+      impBtn.classList.remove("active1");
+      codeNum=0;
+    }
   }
   console.log("code "+codeNum);
 }
@@ -196,3 +217,17 @@ btn_toggle.addEventListener("click", function() {
     theme.href = "./css/light-style.css";
   }
 });
+
+function disableScroll() {
+  scrollTop = 
+    window.pageYOffset || document.documentElement.scrollTop;
+  scrollLeft = 
+    window.pageXOffset || document.documentElement.scrollLeft,
+
+      window.onscroll = function() {
+          window.scrollTo(scrollLeft, scrollTop);
+      };
+}
+function enableScroll() {
+  window.onscroll = function() {};
+}

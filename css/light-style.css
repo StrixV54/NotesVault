@@ -14,18 +14,9 @@ body {
     background-size: cover;
     font-family: 'Zen Kurenaido', sans-serif;
 }
-body::-webkit-scrollbar {
-    width: 13px;
-    background-color: #95a4c0;
-  }
 ::-webkit-scrollbar {
     width: 13px;
     background: none;
-  }
-.notes-list-item::-webkit-scrollbar {
-    width: 13px;
-    border-radius: 10px;
-    background-color: #c7c7c7;
   }
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -36,13 +27,14 @@ body::-webkit-scrollbar {
     background-image: linear-gradient(0deg, #9e82d1, #718cbd);
     border-radius: 10px;
     outline: none;
-  }
+}
 
 .notes-container {
     max-width: 980px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 10px;
+    margin-bottom: 20px;
 	padding-left: 10px;
 	min-height: 100%;
 }
@@ -54,10 +46,11 @@ body::-webkit-scrollbar {
 }
 .head-text {
     margin-right: auto;
+    cursor: default;
     color:#3eaac5;
     font-size: 2.3rem;
     font-family: 'Roboto',Helvetica;
-    text-shadow: 2px 2px 6px #27272763;
+    text-shadow: 0px 0px 10px #2727278a;
 }
 @media only screen and (max-width: 520px) {
     body {
@@ -73,6 +66,16 @@ body::-webkit-scrollbar {
     }
     .header {
         margin-bottom: 10px;
+    }
+    .text-preview {
+        padding: 1em 2em;
+        border-radius: 10px;
+    }
+    .text-preview button{
+        font-size: 0.8rem;
+    }
+    .text-body{
+        font-size: 1.2em;
     }
 }
   
@@ -124,7 +127,6 @@ body::-webkit-scrollbar {
     top: 50%; left: 50%;
     overflow: hidden;
     transform: translate(-50%,-50%);
-    margin: auto;
     width: 80%;
     height: 50%;
     align-items: center;
@@ -164,14 +166,17 @@ body::-webkit-scrollbar {
     cursor: pointer;
     font-size: 1.25em;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
     padding: 10px 15px;
 }
 .imp:hover{
-    background-color: #37a058;
+    background-color: #55635a;
 }
 .imp.active{
-    background-color: #2b75b1;
+    background-color: #42a2da;
+}
+.imp.active1{
+    background-color: #e99547;
 }
 .save-btn, .cancel-btn{
     float: right;
@@ -199,10 +204,8 @@ body::-webkit-scrollbar {
 .notes-list-item {
     background: rgb(238, 238, 238);
 	border-radius: 10px;
-	padding: 0.4em 1em 1em 1em;
+	padding: 0.4em 0.4em 1em 1em;
 	height: 170px;
-    overflow: auto;
-    overflow-wrap: break-word;
     font-weight: bold;
     color: rgb(63, 63, 63);
 	display: flex;
@@ -211,13 +214,28 @@ body::-webkit-scrollbar {
 	justify-content: space-between;
 	white-space: pre-wrap;
 }
-
+.inside-text-body::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 4px;
+    background-color: #ebebeb;
+}
+.inside-text-body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(179, 179, 179, 0.3);
+}
+.inside-text-body{
+    flex-grow: 1;
+    display: flex;
+    margin-top: 6px;
+    overflow: auto;
+    overflow-wrap: break-word;
+}
 #exit {
     margin-left: 10px;
 }
 .topBar {
     display: flex;
     justify-content: space-between;
+    margin-right: 0.3em;
 }
 .mark {
     height: 6px;
@@ -240,13 +258,14 @@ body::-webkit-scrollbar {
     color: rgb(22, 140, 187);
 }
 .theme-toggle{
-    color: #6e8673;
+    color: #a5b6a9;
     cursor: pointer;
     border: none;
-    text-shadow: 0 0 8px #2c2c2c50;
+    text-shadow: 0 0 10px #2c2c2c80;
     margin: auto 12px auto auto;
     align-items: center;
     justify-content: center;
+    transition: 0.5s ease;
 }
 .theme-toggle:hover{
     color:#406ca7;
